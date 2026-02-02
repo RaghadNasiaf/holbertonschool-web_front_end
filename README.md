@@ -1,1 +1,1 @@
-Techium Project Structure - Initialized
+Techium Project
