@@ -1,1 +1,1 @@
-My first HTML project - Techium
+Techium Project Structure - Initialized
