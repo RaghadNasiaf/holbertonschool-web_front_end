@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Check blog links in HTML file
+Check blog links in Latest news section
 """
 
 from bs4 import BeautifulSoup
@@ -13,15 +13,21 @@ soup = BeautifulSoup(content, 'html.parser')
 
 # Find the Latest news section
 latest_news = soup.find('section', id='latest_news')
+
 if latest_news:
+    # Find all articles inside Latest news
     articles = latest_news.find_all('article')
     
-    # Expected link texts
-    expected_texts = ['Career', 'Digital Life', 'Social']
+    # Expected texts in order
+    expected = ['Career', 'Digital Life', 'Social']
     
+    # Check each article's link
     for i, article in enumerate(articles):
         link = article.find('a')
-        if link and link.text.strip() == expected_texts[i]:
-            print(f"first link is correct" if i == 0 else 
-                  f"second link is correct" if i == 1 else 
-                  f"third link is correct")
+        if link and link.text.strip() == expected[i]:
+            if i == 0:
+                print("first link is correct")
+            elif i == 1:
+                print("second link is correct")
+            elif i == 2:
+                print("third link is correct")
